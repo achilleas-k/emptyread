@@ -10,9 +10,10 @@ for idx in range(200):
     print(idx)
     emptythingie = np.empty((1,))
     sl = (slice(1, 2, None), slice(1, 2, None), slice(0, 1, None))
-    # print(sl)
-    # print(ds.shape)
-    # print(emptythingie.shape)
+    print(sl)
+    print(ds.shape)
+    print(emptythingie.shape)
+    # uncommenting below probably makes it succeed
     # print(ds[:])
     ds.read_direct(emptythingie, sl)
     emptythingie.resize(())

@@ -4,7 +4,10 @@ environment:
   matrix:
     - PYTHON: "C:\\Python36-x64"
       bits: 64
-      RDP: "yes"
+      RDP: "no"
+    - PYTHON: "C:\\Python36"
+      bits: 32
+      RDP: "no"
 
 init:
   - "ECHO %PYTHON% %vcvars% (%bits%)"

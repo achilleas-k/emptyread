@@ -14,7 +14,7 @@ for idx in range(200):
     print(ds.shape)
     print(emptythingie.shape)
     # uncommenting below probably makes it succeed
-    # print(ds[:])
+    print(ds[:])
     ds.read_direct(emptythingie, sl)
     emptythingie.resize(())
 

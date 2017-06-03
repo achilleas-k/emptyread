@@ -1,0 +1,24 @@
+version: 1.3.{build}
+
+environment:
+  matrix:
+    - PYTHON: "C:\\Python36-x64"
+      bits: 64
+      RDP: "yes"
+
+init:
+  - "ECHO %PYTHON% %vcvars% (%bits%)"
+  - ps: $env:PATH = "$env:PYTHON;$env:PATH"
+  - python -c "import sys;print('Python version is {}'.format(sys.version))"
+
+install:
+    - python -m pip install numpy h5py
+
+build_script:
+    - python read.py
+
+on_finish:
+  - ps: |
+      if ($env:RDP -eq "yes") {
+          $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+      }

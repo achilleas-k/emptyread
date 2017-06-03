@@ -18,7 +18,7 @@ install:
     - python -m pip install numpy
 
 build_script:
-    - python read.py
+    - python -u read.py
 
 on_finish:
   - ps: |
